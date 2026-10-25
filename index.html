@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Miraj & Partner – Building Materials Store</title>
+<title>Miraj & Partners All in One Store</title>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700&family=Barlow:wght@400;500;600&display=swap">
 <style>
 :root{--bg:#eef0f2;--fg:#14212e;--mut:#5b6875;--card:#fff;--line:#d6dbe0;--navy:#14293d;--navy-fg:#fff;--yel:#ffc21a;--yel-fg:#14212e;--red:#c8401f;--wa:#1f9d55;
@@ -22,7 +22,7 @@ button{font:inherit;cursor:pointer}
 header{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;background:var(--navy);color:var(--navy-fg)}
 .bar{display:flex;align-items:center;gap:10px;padding:10px 0;flex-wrap:wrap}
 .logo{font:700 24px "Barlow Condensed",Arial,sans-serif;text-decoration:none;display:flex;align-items:center;gap:8px;margin-right:auto}
-.logo i{background:var(--yel);color:var(--yel-fg);font-style:normal;padding:0 8px;border-radius:4px}
+.logo small{display:block;font:600 11px Barlow,system-ui,Arial,sans-serif;letter-spacing:.14em;text-transform:uppercase;color:var(--yel);margin-top:2px}.logo span{line-height:1}.logo i{background:var(--yel);color:var(--yel-fg);font-style:normal;padding:0 8px;border-radius:4px}
 .search{flex:1 1 100%;order:3;display:flex;gap:6px}
 .search input{flex:1;min-width:0;padding:10px 12px;border-radius:8px;border:0;font:inherit;background:#fff;color:#14212e}
 .btn{display:inline-flex;align-items:center;justify-content:center;gap:6px;padding:10px 16px;border-radius:8px;border:2px solid transparent;font-weight:600;text-decoration:none;min-height:44px}
@@ -94,7 +94,7 @@ footer h3{color:#fff;font-size:20px;margin-bottom:6px}footer a{display:block;tex
 <body>
 <header>
  <div class="wrap bar">
-  <a class="logo" href="#/" aria-label="Miraj & Partner home"><i>M</i>Miraj &amp; Partner</a>
+  <a class="logo" href="#/" aria-label="Miraj & Partners All in One Store home"><i>M</i><span>Miraj &amp; Partners<small>All in One Store</small></span></a>
   <nav class="nav"><a href="#/">Home</a><a href="#/products">Products</a><a href="#/about">About</a><a href="#/contact">Contact</a></nav>
   <button class="btn b-yel" id="inqBtn">Inquiry list (<span id="cnt">0</span>)</button>
   <form class="search" id="sf" role="search"><input id="q" type="search" placeholder="Search pipes, paint, cement…" aria-label="Search products"><button class="btn b-yel" type="submit">Search</button></form>
@@ -114,7 +114,7 @@ footer h3{color:#fff;font-size:20px;margin-bottom:6px}footer a{display:block;tex
 <script>
 /* ============ EDIT THIS SECTION: store info, categories, products ============ */
 const STORE={
- name:"Miraj & Partner",
+ name:"Miraj & Partners All in One Store",
  tagline:"Everything for your building, under one roof",
  address:"Palodhand Khadi, Mera Chowk",
  phone:"0342-4077562",          // shown on Call buttons
@@ -123,7 +123,8 @@ const STORE={
  email:"mirajsubhan@gmail.com",
  mapQuery:"Mera Chowk, Dera Ismail Khan",
  hours:{default:[7,18],fri:[8,18]}, // 24-hour clock, open/close
- tz:"Asia/Karachi"
+ tz:"Asia/Karachi",
+ aiEndpoint:""   // AI assistant: leave empty on GitHub; on Vercel it turns on by itself. Or put your full Vercel link + /api/chat here
 };
 /* key, name, icon, color, description, sub-categories */
 const CATS=[
@@ -365,7 +366,7 @@ const tel="tel:"+STORE.phone.replace(/[^\d+]/g,"");
 const cat=k=>CATS.find(c=>c[0]===k);
 let inq=[],view={};
 
-function status(){
+function shopStatus(){
  const d=new Date(new Date().toLocaleString("en-US",{timeZone:STORE.tz}));
  const day=d.getDay(),h=d.getHours()+d.getMinutes()/60;
  const [o,c]=day===5?STORE.hours.fri:STORE.hours.default;
@@ -376,7 +377,7 @@ function status(){
  const nd=(day+1)%7,[no]=nd===5?STORE.hours.fri:STORE.hours.default;
  return{open:false,t:"Closed, opens tomorrow at "+f(no)};
 }
-const badge=()=>{const s=status();return `<span class="badge ${s.open?"open":"closed"}"><span class="dot"></span>${s.t}</span>`};
+const badge=()=>{const s=shopStatus();return `<span class="badge ${s.open?"open":"closed"}"><span class="dot"></span>${s.t}</span>`};
 
 function card(p){
  const c=cat(p.cat),pic=p.img?`<img src="${E(p.img)}" alt="${E(p.name)}" loading="lazy" decoding="async">`:`<span aria-hidden="true">${p.icon}</span>`;
@@ -476,5 +477,100 @@ $("#foot").innerHTML=`<div><h3>${E(STORE.name)}</h3><p>${E(STORE.address)}<br>Sa
 <div><h3>Sections</h3>${CATS.map(c=>`<a href="#/c/${c[0]}">${c[1]}</a>`).join("")}</div>`;
 upd();route();
 </script>
+<style>
+.bot-fab{position:fixed;left:14px;bottom:calc(76px + env(safe-area-inset-bottom,0px));z-index:24;border-radius:99px;box-shadow:0 4px 14px rgba(0,0,0,.3)}
+.bot-panel{position:fixed;left:14px;bottom:calc(130px + env(safe-area-inset-bottom,0px));z-index:35;width:min(370px,calc(100% - 28px));height:min(500px,calc(100vh - 190px));display:flex;flex-direction:column;background:var(--card);color:var(--fg);border:1px solid var(--line);border-radius:14px;box-shadow:0 8px 30px rgba(0,0,0,.35);overflow:hidden}
+.bot-panel[hidden]{display:none}
+.bot-head{display:flex;justify-content:space-between;align-items:center;background:var(--navy);color:var(--navy-fg);padding:10px 14px}
+.bot-head b{font:700 20px "Barlow Condensed",Arial,sans-serif}
+.bot-head button{background:none;border:0;color:inherit;font-size:20px;min-width:44px;min-height:44px}
+.bot-msgs{flex:1;overflow-y:auto;padding:10px 12px}
+.bot-msgs .m{max-width:90%;padding:8px 12px;border-radius:12px;margin:6px 0;font-size:15px;line-height:1.4}
+.bot-msgs .m.u{background:var(--navy);color:var(--navy-fg);margin-left:auto}
+.bot-msgs .m.b{background:var(--bg)}
+.bot-msgs .r{border-top:1px solid var(--line);margin-top:8px;padding-top:8px}
+.bot-msgs .r small{color:var(--mut)}
+.bot-msgs .acts{display:flex;gap:6px;margin-top:6px;flex-wrap:wrap}
+.bot-msgs .acts .btn{padding:6px 10px;min-height:36px;font-size:14px}
+.bot-msgs a{color:inherit}
+.bot-chips{display:flex;gap:6px;overflow-x:auto;padding:6px 12px}
+.bot-form{display:flex;gap:6px;padding:8px 12px;border-top:1px solid var(--line)}
+.bot-form input{flex:1;min-width:0}
+@media(min-width:800px){.bot-fab{bottom:20px}.bot-panel{bottom:76px}}
+</style>
+<script>
+(function(){
+var root=document.createElement("div");
+root.innerHTML='<button class="bot-fab btn b-yel" id="botOpen" aria-expanded="false" aria-controls="botPanel">💬 Ask the shop</button>'+
+'<section class="bot-panel" id="botPanel" aria-label="Shop assistant" hidden><div class="bot-head"><b>Shop assistant</b><button id="botClose" aria-label="Close assistant">✕</button></div>'+
+'<div class="bot-msgs" id="botMsgs" aria-live="polite"></div><div class="bot-chips" id="botChips"></div>'+
+'<form class="bot-form" id="botForm"><input id="botIn" placeholder="Type what you need…" aria-label="Your message" autocomplete="off"><button class="btn b-yel" type="submit">Send</button></form></section>';
+document.body.appendChild(root);
+var $b=function(id){return document.getElementById(id)},msgs=$b("botMsgs"),panel=$b("botPanel"),opened=false;
+var AI_URL=STORE.aiEndpoint||(/vercel\.app$/.test(location.hostname)?"/api/chat":""),hist=[];
+var STOP="do you have the a an is are what how much price of for i want need please show me any in your and to looking buy get can u available stock rate rates cost kitna hai hain ka ki ke chahiye mujhe".split(" ");
+function say(html,who){var d=document.createElement("div");d.className="m "+(who||"b");d.innerHTML=html;msgs.appendChild(d);msgs.scrollTop=msgs.scrollHeight;return d}
+function waBtn(t,label){return '<a class="btn b-wa" target="_blank" rel="noopener" href="'+wa(t)+'">'+(label||"WhatsApp us")+'</a>'}
+function hoursText(){var s="";try{s=shopStatus().t+". "}catch(e){}return s+"We are open Saturday to Thursday 7:00 AM to 6:00 PM, and Friday 8:00 AM to 6:00 PM."}
+function find(text){
+  var toks=text.toLowerCase().replace(/[^a-z0-9\u00d7x\s]/g," ").split(/\s+/).filter(function(t){return t.length>1&&STOP.indexOf(t)<0});
+  if(!toks.length)return [];
+  var sc=P.map(function(p){var c=cat(p.cat),hay=[p.name,p.sub,p.brand,p.size,c[1]].join(" ").toLowerCase(),n=0;
+    toks.forEach(function(t){var s=t.replace(/s$/,"");if(hay.indexOf(t)>-1||(s.length>2&&hay.indexOf(s)>-1))n++});return {p:p,n:n}})
+    .filter(function(x){return x.n>0}).sort(function(a,b){return b.n-a.n});
+  return sc.slice(0,3).map(function(x){return x.p});
+}
+function results(list){
+  return list.map(function(p){return '<div class="r"><b>'+E(p.name)+'</b><br><small>'+E(p.sub)+(p.brand?" · "+E(p.brand):"")+(p.size?" · "+E(p.size):"")+'</small><div class="acts"><button class="btn b-yel" data-add="'+p.id+'">Add to list</button><a class="btn b-wa" target="_blank" rel="noopener" href="'+wa("Hello, I want to ask about: "+p.name+(p.size?" ("+p.size+")":""))+'">Ask price</a></div></div>'}).join("");
+}
+function reply(raw){
+  var t=raw.toLowerCase().trim(),m=function(r){return r.test(t)};
+  if(m(/^(hi|hello|hey|salam|assalam|aoa|slam)\b/))return "Assalam o Alaikum! Tell me what you are looking for, for example “cement”, “PPR elbow” or “LED bulb”. You can also ask about opening hours or our address.";
+  if(m(/\b(thanks|thank you|thx|shukriya|shukria)\b/))return "You are welcome! Anything else you need?";
+  if(m(/(my list|inquiry list|cart|send list|send my list)/)){
+    if(!inq.length)return "Your list is empty. Search for a product and tap <b>Add to list</b>.";
+    var txt="Hello, I want these items:\n"+inq.map(function(x){return "- "+P[x.id].name+" x"+x.q}).join("\n");
+    return "Your list:<br>"+inq.map(function(x){return "• "+E(P[x.id].name)+" × "+x.q}).join("<br>")+'<div class="acts">'+waBtn(txt,"Send list on WhatsApp")+"</div>";
+  }
+  if(m(/\b(open|opening|close|closing|timing|timings|hours|time|kab)\b/))return hoursText();
+  if(m(/(address|where|location|located|direction|directions|map|kahan|kahaan)/))return E(STORE.address)+'.<div class="acts"><a class="btn b-line" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query='+encodeURIComponent(STORE.address+", "+STORE.mapQuery)+'">Get directions</a></div>';
+  if(m(/(phone|call|number|contact|whatsapp|email|mobile|mail)/))return "Phone: "+E(STORE.phone)+"<br>WhatsApp: "+E(STORE.whatsappShow)+"<br>Email: "+E(STORE.email)+'<div class="acts"><a class="btn b-red" href="'+tel+'">Call now</a>'+waBtn("Hello, I want to ask about your products.")+"</div>";
+  if(m(/(deliver|delivery|home delivery)/))return "Please ask us on WhatsApp whether we can deliver to your area."+'<div class="acts">'+waBtn("Hello, can you deliver to my area?")+"</div>";
+  var ck=Object.keys({}).length,hit=CATS.filter(function(c){return t.indexOf(c[0])>-1||t.indexOf(c[1].toLowerCase())>-1})[0];
+  var list=find(t),priceQ=m(/(price|rate|cost|kitna|kitne|qeemat|kimat|discount)/);
+  if(list.length)return "Here is what I found:"+results(list)+(priceQ?"<br>Prices change often, so tap <b>Ask price</b> for today’s rate.":"")+(hit?'<div class="acts"><a class="btn b-line" href="#/c/'+hit[0]+'" data-go>See all '+E(hit[1])+"</a></div>":"");
+  if(hit)return 'You can see everything in '+E(hit[1])+' here:<div class="acts"><a class="btn b-yel" href="#/c/'+hit[0]+'" data-go>Open '+E(hit[1])+"</a></div>";
+  if(priceQ)return "Prices change often. Please send the item name on WhatsApp and we will tell you today’s rate."+'<div class="acts">'+waBtn("Hello, what is the price of: "+raw)+"</div>";
+  return "Sorry, I could not find that. You can ask us directly on WhatsApp and we will help you."+'<div class="acts">'+waBtn("Hello, I am looking for: "+raw)+"</div>";
+}
+function send(text){
+  text=text.trim();if(!text)return;say(E(text),"u");
+  if(!AI_URL){setTimeout(function(){say(reply(text))},250);return}
+  var bub=say("<i>Typing…</i>");
+  hist.push({role:"user",content:text});hist=hist.slice(-8);
+  fetch(AI_URL,{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({messages:hist})})
+   .then(function(r){if(!r.ok)throw new Error("bad");return r.json()})
+   .then(function(d){if(!d||!d.reply)throw new Error("empty");hist.push({role:"assistant",content:d.reply});
+     var c=find(text).slice(0,2);
+     bub.innerHTML=E(d.reply).replace(/\n/g,"<br>")+(c.length?results(c):"")+'<div class="acts">'+waBtn("Hello, "+text,"Ask us on WhatsApp")+"</div>";msgs.scrollTop=msgs.scrollHeight})
+   .catch(function(){bub.innerHTML=reply(text);msgs.scrollTop=msgs.scrollHeight});
+}
+function toggle(on){opened=on;panel.hidden=!on;$b("botOpen").setAttribute("aria-expanded",on);
+  if(on&&!msgs.children.length){say("Assalam o Alaikum! I am the "+(AI_URL?"AI":"automatic")+" assistant of <b>"+E(STORE.name)+"</b>. Ask me about products, opening hours or our address."+(AI_URL?" I can make mistakes, so please confirm prices and stock on WhatsApp.":" For anything else, WhatsApp us."));}
+  if(on)$b("botIn").focus()}
+var chips=[["Opening hours","opening hours"],["Cement","cement"],["Find a product","what products do you have"],["Contact","contact"],["My list","my list"]];
+$b("botChips").innerHTML=chips.map(function(c,i){return '<button class="chip" type="button" data-q="'+i+'">'+c[0]+"</button>"}).join("");
+$b("botChips").addEventListener("click",function(e){var q=e.target.getAttribute("data-q");if(q!=null){if(q==="2"){say("Type the product name, for example <b>PPR elbow</b>, <b>LED bulb</b> or <b>cement</b>.");$b("botIn").focus()}else send(chips[+q][1])}});
+$b("botOpen").onclick=function(){toggle(!opened)};$b("botClose").onclick=function(){toggle(false)};
+$b("botForm").addEventListener("submit",function(e){e.preventDefault();var i=$b("botIn");send(i.value);i.value=""});
+msgs.addEventListener("click",function(e){
+  var a=e.target.closest("[data-add]");
+  if(a){var id=+a.getAttribute("data-add"),it=inq.find(function(x){return x.id===id});it?it.q++:inq.push({id:id,q:1});upd();a.textContent="Added ✓";return}
+  if(e.target.closest("[data-go]"))toggle(false);
+});
+document.addEventListener("keydown",function(e){if(e.key==="Escape"&&opened)toggle(false)});
+})();
+</script>
+
 </body>
 </html>

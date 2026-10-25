@@ -1,0 +1,6 @@
+{
+  "name": "miraj-partners-all-in-one-store",
+  "version": "1.0.0",
+  "private": true,
+  "engines": { "node": ">=18" }
+}
