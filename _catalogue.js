@@ -1,5 +1,728 @@
-// Generated from the website product list. Ask Claude for a new copy when products or shop details change.
+// Small built-in backup list (the same products already shown on the website).
+// The AI normally reads the shop's private stock sheet instead (PRODUCT_SHEET_URL in Vercel).
 module.exports = {
- "store": "Shop name: Miraj & Partners All in One Store\nAddress: Palodhand Khadi, Mera Chowk\nPhone (calls): 0342-4077562\nWhatsApp: 0315-9027799\nEmail: mirajsubhan@gmail.com\nOpening hours: Saturday to Thursday 7:00 AM to 6:00 PM; Friday 8:00 AM to 6:00 PM",
- "catalogue": "\n## Sanitary\n- Side pillar cock [Taps] | Long spout\n- Side pillar cock (alt.) [Taps] | Long spout\n- Sink cock [Taps] | Chrome\n- Bib cock (SPI) [Taps] brand: SPI | Plastic\n- Bib cock (A1) [Taps] brand: A1 | White\n- Sink mixer [Mixers] brand: Pomi | Two handle\n- Basin mixer [Mixers] | Two handle\n- China basin mixer [Mixers] | Single lever, with hose\n\n## Electrical\n- Ceiling rose [Plugs & Holders] brand: Opal | Standard\n- Switch & socket (Crown series) [Switches & Sockets] brand: JK | 250 V, 13 A\n- Lantern joint box [Boxes & Breakers] | 4-way\n- SMD downlight [Lights] brand: Osaka | 12 W\n- LED bulb [Lights] brand: Tuff | 12 W / 18 W\n- Socket with switch & indicator [Switches & Sockets] | Single and double\n- Pendant holder [Plugs & Holders] | Standard\n- Multi-socket with switch & indicator [Switches & Sockets] | Multi-pin\n- Switch & socket boards [Switches & Sockets] brand: SEC | Various plates\n- 3-pin plugs [Plugs & Holders] | Standard\n- 2-pin plugs [Plugs & Holders] | Standard\n- Bulb holder (WF type) [Plugs & Holders] | Standard\n- Immersion water heater rod [Water Heaters] brand: HB | 1200 W, waterproof\n- Immersion water heater rod [Water Heaters] brand: HB | 1500 W, shock proof\n- MF switch [Switches & Sockets] | Standard\n- Steel distribution box (DB) [Boxes & Breakers] | Steel\n- Breaker box, 2-pole [Boxes & Breakers] brand: KPI | 2 pole\n- Breaker box, 4-pole [Boxes & Breakers] brand: KPI | 4 pole\n- ATS (automatic transfer switch) [Boxes & Breakers] brand: Opal | 80 A, 2 pole\n- Distribution box (D box) [Boxes & Breakers] | Flush mount\n- Bulb holder (Habib) [Plugs & Holders] brand: Habib | Standard\n- Ceiling rose, brown (Major) [Plugs & Holders] | Standard\n- Multi-plug adaptor [Plugs & Holders] | Orange with indicator, white\n- Bulb holder (Opal) [Plugs & Holders] brand: Opal | Round base\n- Bulb holder (Orange) [Plugs & Holders] | Standard\n- Digital volt meter & indicator lights [Meters & Connectors] brand: Opal | OP-60\n- Wall box 6×3 [Boxes & Breakers] brand: KPI | 6×3\n- Wall box 3×3 [Boxes & Breakers] brand: KPI | 3×3\n- Wall joint box [Boxes & Breakers] brand: KPI | 4-way\n- Bulb holder with wires (WF) [Plugs & Holders] | Standard\n- Changeover switch (breaker type) [Boxes & Breakers] brand: Heaven | 63 A, 230 V\n- Changeover switch (D type) [Boxes & Breakers] | 100 DP, 2 pole\n- Connectors & terminal blocks [Meters & Connectors] brand: Prince | Ceramic 200 A, strips\n\n## Drainage\n- U-PVC reducing Y-tee [Fittings] | Reducing\n- U-PVC reducing tee [Fittings] | Reducing\n- U-PVC reducing elbow 90° [Fittings] brand: Atlas | Reducing\n- U-PVC drain pipe [Drain Pipes] | Various sizes\n- P-trap (pee trap) [Traps] | Standard\n- U-PVC cross tee with plug [Fittings] brand: Atlas | 4\" SCH 40\n- U-PVC elbow 90° [Fittings] brand: Atlas | 4\" SCH 40\n- U-PVC Y-tee [Fittings] brand: Atlas | 3\" SCH 40\n- U-PVC tee [Fittings] brand: Atlas | 3\" SCH 40\n- U-PVC socket (coupling) [Fittings] brand: Atlas | Standard\n- U-PVC Y-tee with cleanout plug [Fittings] brand: Atlas | 4\" SCH 40\n- Reducing bush [Fittings] brand: Accu-Fit | SCH 40\n- Drain trap with hinged lid [Traps] | Standard\n- U-PVC socket (short) [Fittings] | Standard\n- U-PVC reducer coupling [Fittings] | Standard\n- U-PVC reducer coupling (alt.) [Fittings] | Standard\n- U-PVC elbow 90° (side view) [Fittings] brand: Atlas | Standard\n- Vent cap (cowl) [Fittings] | SCH 40\n- U-PVC long bend 90° [Fittings] | 3\" SCH 40\n\n## Plumbing\n- PPR pipe (PN-20) [Pipes] | Various sizes\n- PPR elbow 90° [Fittings] | Standard\n- PPR elbow 90° (short) [Fittings] | Standard\n- PPR elbow 45° [Fittings] | Standard\n- PPR short elbow [Fittings] | Standard\n- PPR cross-over bend [Fittings] | Standard\n- PPR tee [Fittings] | Standard\n- PPR reducing tee [Fittings] | Standard\n- PPR cross tee [Fittings] | Standard\n- PPR reducer [Fittings] | Standard\n- PPR socket (coupling) [Fittings] | Standard\n- PPR male threaded adaptor [Fittings] | Standard\n- PPR female threaded socket [Fittings] | Brass insert\n- PPR female threaded elbow [Fittings] | Brass insert\n- PPR threaded elbow (side view) [Fittings] | Brass insert\n- PPR female threaded tee [Fittings] | Brass insert\n- Pipe clip with nail [Fittings] | Standard\n- PPR stop valve (red handle) [Valves] | Standard\n- PPR stop valve (red handle, alt.) [Valves] | Standard\n- PPR concealed valve [Valves] | Standard\n- PPR valve (white cap) [Valves] | Standard\n- Water tank (white) [Tanks] | Various litres\n- Submersible pump [Pumps] | Borehole type\n\n## Hardware\n- Door lock [Locks] | Mortise / pad\n- Door hinge [Hinges] | 3\" – 5\"\n- Tool set [Tools] | Hammer, plier, spanner\n- Screws & nails [Screws & Nails] | Assorted\n- Door handle [Handles] | Steel / brass\n\n## Paint\n- Emulsion paint [Emulsion] | 4 L / 16 L\n- Enamel paint [Enamel] | 1 L / 4 L\n- Wall putty & primer [Primer & Putty] | 5 kg / 20 kg\n- Brush & roller [Brushes & Rollers] | Assorted\n\n## General Items\n- Bucket & basin [Household] | Plastic\n- Wheelbarrow [Site Items] | Steel\n- Safety helmet & gloves [Safety] | Standard\n\n## Steel & Cement\n- Fauji cement (Grade 53, 50 kg) [Cement] brand: Fauji | 50 kg bag, OPC\n- Askari cement (Grade 53) [Cement] brand: Askari | 50 kg bag, OPC\n- Kohat white cement [Cement] brand: Kohat | White cement\n- Fecto cement [Cement] brand: Fecto | Cement bag\n- Fauji tile bond (grey) [Cement] brand: Fauji | 20 kg bag\n- Steel reinforcement bar (Grade 60) [Steel Rods] | Grade 60\n- Binding wire [Wire & Mesh] | Roll\n- Roofing sheet [Sheets] | Galvanized"
+ "store": "Shop name: Miraj & Partners All in One Store\nAddress: Palodhand Khadi, Mera Chowk\nPhone (calls): 03424077562\nWhatsApp: 03159027799\nEmail: mirajsubhan@gmail.com\nOpening hours: Saturday to Thursday 7:00 AM to 6:00 PM; Friday 8:00 AM to 6:00 PM",
+ "items": [
+  {
+   "name": "Side pillar cock",
+   "category": "Sanitary",
+   "brand": "",
+   "size": "Long spout",
+   "instock": true
+  },
+  {
+   "name": "Side pillar cock (alt.)",
+   "category": "Sanitary",
+   "brand": "",
+   "size": "Long spout",
+   "instock": true
+  },
+  {
+   "name": "Sink cock",
+   "category": "Sanitary",
+   "brand": "",
+   "size": "Chrome",
+   "instock": true
+  },
+  {
+   "name": "Bib cock (SPI)",
+   "category": "Sanitary",
+   "brand": "SPI",
+   "size": "Plastic",
+   "instock": true
+  },
+  {
+   "name": "Bib cock (A1)",
+   "category": "Sanitary",
+   "brand": "A1",
+   "size": "White",
+   "instock": true
+  },
+  {
+   "name": "Sink mixer",
+   "category": "Sanitary",
+   "brand": "Pomi",
+   "size": "Two handle",
+   "instock": true
+  },
+  {
+   "name": "Basin mixer",
+   "category": "Sanitary",
+   "brand": "",
+   "size": "Two handle",
+   "instock": true
+  },
+  {
+   "name": "China basin mixer",
+   "category": "Sanitary",
+   "brand": "",
+   "size": "Single lever, with hose",
+   "instock": true
+  },
+  {
+   "name": "Ceiling rose",
+   "category": "Electrical",
+   "brand": "Opal",
+   "size": "Standard",
+   "instock": true
+  },
+  {
+   "name": "Switch & socket (Crown series)",
+   "category": "Electrical",
+   "brand": "JK",
+   "size": "250 V, 13 A",
+   "instock": true
+  },
+  {
+   "name": "Lantern joint box",
+   "category": "Electrical",
+   "brand": "",
+   "size": "4-way",
+   "instock": true
+  },
+  {
+   "name": "SMD downlight",
+   "category": "Electrical",
+   "brand": "Osaka",
+   "size": "12 W",
+   "instock": true
+  },
+  {
+   "name": "LED bulb",
+   "category": "Electrical",
+   "brand": "Tuff",
+   "size": "12 W / 18 W",
+   "instock": true
+  },
+  {
+   "name": "Socket with switch & indicator",
+   "category": "Electrical",
+   "brand": "",
+   "size": "Single and double",
+   "instock": true
+  },
+  {
+   "name": "Pendant holder",
+   "category": "Electrical",
+   "brand": "",
+   "size": "Standard",
+   "instock": true
+  },
+  {
+   "name": "Multi-socket with switch & indicator",
+   "category": "Electrical",
+   "brand": "",
+   "size": "Multi-pin",
+   "instock": true
+  },
+  {
+   "name": "Switch & socket boards",
+   "category": "Electrical",
+   "brand": "SEC",
+   "size": "Various plates",
+   "instock": true
+  },
+  {
+   "name": "3-pin plugs",
+   "category": "Electrical",
+   "brand": "",
+   "size": "Standard",
+   "instock": true
+  },
+  {
+   "name": "2-pin plugs",
+   "category": "Electrical",
+   "brand": "",
+   "size": "Standard",
+   "instock": true
+  },
+  {
+   "name": "Bulb holder (WF type)",
+   "category": "Electrical",
+   "brand": "",
+   "size": "Standard",
+   "instock": true
+  },
+  {
+   "name": "Immersion water heater rod",
+   "category": "Electrical",
+   "brand": "HB",
+   "size": "1200 W, waterproof",
+   "instock": true
+  },
+  {
+   "name": "Immersion water heater rod",
+   "category": "Electrical",
+   "brand": "HB",
+   "size": "1500 W, shock proof",
+   "instock": true
+  },
+  {
+   "name": "MF switch",
+   "category": "Electrical",
+   "brand": "",
+   "size": "Standard",
+   "instock": true
+  },
+  {
+   "name": "Steel distribution box (DB)",
+   "category": "Electrical",
+   "brand": "",
+   "size": "Steel",
+   "instock": true
+  },
+  {
+   "name": "Breaker box, 2-pole",
+   "category": "Electrical",
+   "brand": "KPI",
+   "size": "2 pole",
+   "instock": true
+  },
+  {
+   "name": "Breaker box, 4-pole",
+   "category": "Electrical",
+   "brand": "KPI",
+   "size": "4 pole",
+   "instock": true
+  },
+  {
+   "name": "ATS (automatic transfer switch)",
+   "category": "Electrical",
+   "brand": "Opal",
+   "size": "80 A, 2 pole",
+   "instock": true
+  },
+  {
+   "name": "Distribution box (D box)",
+   "category": "Electrical",
+   "brand": "",
+   "size": "Flush mount",
+   "instock": true
+  },
+  {
+   "name": "Bulb holder (Habib)",
+   "category": "Electrical",
+   "brand": "Habib",
+   "size": "Standard",
+   "instock": true
+  },
+  {
+   "name": "Ceiling rose, brown (Major)",
+   "category": "Electrical",
+   "brand": "",
+   "size": "Standard",
+   "instock": true
+  },
+  {
+   "name": "Multi-plug adaptor",
+   "category": "Electrical",
+   "brand": "",
+   "size": "Orange with indicator, white",
+   "instock": true
+  },
+  {
+   "name": "Bulb holder (Opal)",
+   "category": "Electrical",
+   "brand": "Opal",
+   "size": "Round base",
+   "instock": true
+  },
+  {
+   "name": "Bulb holder (Orange)",
+   "category": "Electrical",
+   "brand": "",
+   "size": "Standard",
+   "instock": true
+  },
+  {
+   "name": "Digital volt meter & indicator lights",
+   "category": "Electrical",
+   "brand": "Opal",
+   "size": "OP-60",
+   "instock": true
+  },
+  {
+   "name": "Wall box 6×3",
+   "category": "Electrical",
+   "brand": "KPI",
+   "size": "6×3",
+   "instock": true
+  },
+  {
+   "name": "Wall box 3×3",
+   "category": "Electrical",
+   "brand": "KPI",
+   "size": "3×3",
+   "instock": true
+  },
+  {
+   "name": "Wall joint box",
+   "category": "Electrical",
+   "brand": "KPI",
+   "size": "4-way",
+   "instock": true
+  },
+  {
+   "name": "Bulb holder with wires (WF)",
+   "category": "Electrical",
+   "brand": "",
+   "size": "Standard",
+   "instock": true
+  },
+  {
+   "name": "Changeover switch (breaker type)",
+   "category": "Electrical",
+   "brand": "Heaven",
+   "size": "63 A, 230 V",
+   "instock": true
+  },
+  {
+   "name": "Changeover switch (D type)",
+   "category": "Electrical",
+   "brand": "",
+   "size": "100 DP, 2 pole",
+   "instock": true
+  },
+  {
+   "name": "Connectors & terminal blocks",
+   "category": "Electrical",
+   "brand": "Prince",
+   "size": "Ceramic 200 A, strips",
+   "instock": true
+  },
+  {
+   "name": "U-PVC reducing Y-tee",
+   "category": "Drainage",
+   "brand": "",
+   "size": "Reducing",
+   "instock": true
+  },
+  {
+   "name": "U-PVC reducing tee",
+   "category": "Drainage",
+   "brand": "",
+   "size": "Reducing",
+   "instock": true
+  },
+  {
+   "name": "U-PVC reducing elbow 90°",
+   "category": "Drainage",
+   "brand": "Atlas",
+   "size": "Reducing",
+   "instock": true
+  },
+  {
+   "name": "U-PVC drain pipe",
+   "category": "Drainage",
+   "brand": "",
+   "size": "Various sizes",
+   "instock": true
+  },
+  {
+   "name": "P-trap (pee trap)",
+   "category": "Drainage",
+   "brand": "",
+   "size": "Standard",
+   "instock": true
+  },
+  {
+   "name": "U-PVC cross tee with plug",
+   "category": "Drainage",
+   "brand": "Atlas",
+   "size": "4\" SCH 40",
+   "instock": true
+  },
+  {
+   "name": "U-PVC elbow 90°",
+   "category": "Drainage",
+   "brand": "Atlas",
+   "size": "4\" SCH 40",
+   "instock": true
+  },
+  {
+   "name": "U-PVC Y-tee",
+   "category": "Drainage",
+   "brand": "Atlas",
+   "size": "3\" SCH 40",
+   "instock": true
+  },
+  {
+   "name": "U-PVC tee",
+   "category": "Drainage",
+   "brand": "Atlas",
+   "size": "3\" SCH 40",
+   "instock": true
+  },
+  {
+   "name": "U-PVC socket (coupling)",
+   "category": "Drainage",
+   "brand": "Atlas",
+   "size": "Standard",
+   "instock": true
+  },
+  {
+   "name": "U-PVC Y-tee with cleanout plug",
+   "category": "Drainage",
+   "brand": "Atlas",
+   "size": "4\" SCH 40",
+   "instock": true
+  },
+  {
+   "name": "Reducing bush",
+   "category": "Drainage",
+   "brand": "Accu-Fit",
+   "size": "SCH 40",
+   "instock": true
+  },
+  {
+   "name": "Drain trap with hinged lid",
+   "category": "Drainage",
+   "brand": "",
+   "size": "Standard",
+   "instock": true
+  },
+  {
+   "name": "U-PVC socket (short)",
+   "category": "Drainage",
+   "brand": "",
+   "size": "Standard",
+   "instock": true
+  },
+  {
+   "name": "U-PVC reducer coupling",
+   "category": "Drainage",
+   "brand": "",
+   "size": "Standard",
+   "instock": true
+  },
+  {
+   "name": "U-PVC reducer coupling (alt.)",
+   "category": "Drainage",
+   "brand": "",
+   "size": "Standard",
+   "instock": true
+  },
+  {
+   "name": "U-PVC elbow 90° (side view)",
+   "category": "Drainage",
+   "brand": "Atlas",
+   "size": "Standard",
+   "instock": true
+  },
+  {
+   "name": "Vent cap (cowl)",
+   "category": "Drainage",
+   "brand": "",
+   "size": "SCH 40",
+   "instock": true
+  },
+  {
+   "name": "U-PVC long bend 90°",
+   "category": "Drainage",
+   "brand": "",
+   "size": "3\" SCH 40",
+   "instock": true
+  },
+  {
+   "name": "PPR pipe (PN-20)",
+   "category": "Plumbing",
+   "brand": "",
+   "size": "Various sizes",
+   "instock": true
+  },
+  {
+   "name": "PPR elbow 90°",
+   "category": "Plumbing",
+   "brand": "",
+   "size": "Standard",
+   "instock": true
+  },
+  {
+   "name": "PPR elbow 90° (short)",
+   "category": "Plumbing",
+   "brand": "",
+   "size": "Standard",
+   "instock": true
+  },
+  {
+   "name": "PPR elbow 45°",
+   "category": "Plumbing",
+   "brand": "",
+   "size": "Standard",
+   "instock": true
+  },
+  {
+   "name": "PPR short elbow",
+   "category": "Plumbing",
+   "brand": "",
+   "size": "Standard",
+   "instock": true
+  },
+  {
+   "name": "PPR cross-over bend",
+   "category": "Plumbing",
+   "brand": "",
+   "size": "Standard",
+   "instock": true
+  },
+  {
+   "name": "PPR tee",
+   "category": "Plumbing",
+   "brand": "",
+   "size": "Standard",
+   "instock": true
+  },
+  {
+   "name": "PPR reducing tee",
+   "category": "Plumbing",
+   "brand": "",
+   "size": "Standard",
+   "instock": true
+  },
+  {
+   "name": "PPR cross tee",
+   "category": "Plumbing",
+   "brand": "",
+   "size": "Standard",
+   "instock": true
+  },
+  {
+   "name": "PPR reducer",
+   "category": "Plumbing",
+   "brand": "",
+   "size": "Standard",
+   "instock": true
+  },
+  {
+   "name": "PPR socket (coupling)",
+   "category": "Plumbing",
+   "brand": "",
+   "size": "Standard",
+   "instock": true
+  },
+  {
+   "name": "PPR male threaded adaptor",
+   "category": "Plumbing",
+   "brand": "",
+   "size": "Standard",
+   "instock": true
+  },
+  {
+   "name": "PPR female threaded socket",
+   "category": "Plumbing",
+   "brand": "",
+   "size": "Brass insert",
+   "instock": true
+  },
+  {
+   "name": "PPR female threaded elbow",
+   "category": "Plumbing",
+   "brand": "",
+   "size": "Brass insert",
+   "instock": true
+  },
+  {
+   "name": "PPR threaded elbow (side view)",
+   "category": "Plumbing",
+   "brand": "",
+   "size": "Brass insert",
+   "instock": true
+  },
+  {
+   "name": "PPR female threaded tee",
+   "category": "Plumbing",
+   "brand": "",
+   "size": "Brass insert",
+   "instock": true
+  },
+  {
+   "name": "Pipe clip with nail",
+   "category": "Plumbing",
+   "brand": "",
+   "size": "Standard",
+   "instock": true
+  },
+  {
+   "name": "PPR stop valve (red handle)",
+   "category": "Plumbing",
+   "brand": "",
+   "size": "Standard",
+   "instock": true
+  },
+  {
+   "name": "PPR stop valve (red handle, alt.)",
+   "category": "Plumbing",
+   "brand": "",
+   "size": "Standard",
+   "instock": true
+  },
+  {
+   "name": "PPR concealed valve",
+   "category": "Plumbing",
+   "brand": "",
+   "size": "Standard",
+   "instock": true
+  },
+  {
+   "name": "PPR valve (white cap)",
+   "category": "Plumbing",
+   "brand": "",
+   "size": "Standard",
+   "instock": true
+  },
+  {
+   "name": "Water tank (white)",
+   "category": "Plumbing",
+   "brand": "",
+   "size": "Various litres",
+   "instock": true
+  },
+  {
+   "name": "Submersible pump",
+   "category": "Plumbing",
+   "brand": "",
+   "size": "Borehole type",
+   "instock": true
+  },
+  {
+   "name": "Door lock",
+   "category": "Hardware",
+   "brand": "",
+   "size": "Mortise / pad",
+   "instock": true
+  },
+  {
+   "name": "Door hinge",
+   "category": "Hardware",
+   "brand": "",
+   "size": "3\" – 5\"",
+   "instock": true
+  },
+  {
+   "name": "Tool set",
+   "category": "Hardware",
+   "brand": "",
+   "size": "Hammer, plier, spanner",
+   "instock": true
+  },
+  {
+   "name": "Screws & nails",
+   "category": "Hardware",
+   "brand": "",
+   "size": "Assorted",
+   "instock": true
+  },
+  {
+   "name": "Door handle",
+   "category": "Hardware",
+   "brand": "",
+   "size": "Steel / brass",
+   "instock": true
+  },
+  {
+   "name": "Emulsion paint",
+   "category": "Paint",
+   "brand": "",
+   "size": "4 L / 16 L",
+   "instock": true
+  },
+  {
+   "name": "Enamel paint",
+   "category": "Paint",
+   "brand": "",
+   "size": "1 L / 4 L",
+   "instock": true
+  },
+  {
+   "name": "Wall putty & primer",
+   "category": "Paint",
+   "brand": "",
+   "size": "5 kg / 20 kg",
+   "instock": true
+  },
+  {
+   "name": "Brush & roller",
+   "category": "Paint",
+   "brand": "",
+   "size": "Assorted",
+   "instock": true
+  },
+  {
+   "name": "Bucket & basin",
+   "category": "General Items",
+   "brand": "",
+   "size": "Plastic",
+   "instock": true
+  },
+  {
+   "name": "Wheelbarrow",
+   "category": "General Items",
+   "brand": "",
+   "size": "Steel",
+   "instock": true
+  },
+  {
+   "name": "Safety helmet & gloves",
+   "category": "General Items",
+   "brand": "",
+   "size": "Standard",
+   "instock": true
+  },
+  {
+   "name": "Fauji cement (Grade 53, 50 kg)",
+   "category": "Steel & Cement",
+   "brand": "Fauji",
+   "size": "50 kg bag, OPC",
+   "instock": true
+  },
+  {
+   "name": "Askari cement (Grade 53)",
+   "category": "Steel & Cement",
+   "brand": "Askari",
+   "size": "50 kg bag, OPC",
+   "instock": true
+  },
+  {
+   "name": "Kohat white cement",
+   "category": "Steel & Cement",
+   "brand": "Kohat",
+   "size": "White cement",
+   "instock": true
+  },
+  {
+   "name": "Fecto cement",
+   "category": "Steel & Cement",
+   "brand": "Fecto",
+   "size": "Cement bag",
+   "instock": true
+  },
+  {
+   "name": "Fauji tile bond (grey)",
+   "category": "Steel & Cement",
+   "brand": "Fauji",
+   "size": "20 kg bag",
+   "instock": true
+  },
+  {
+   "name": "Steel reinforcement bar (Grade 60)",
+   "category": "Steel & Cement",
+   "brand": "",
+   "size": "Grade 60",
+   "instock": true
+  },
+  {
+   "name": "Binding wire",
+   "category": "Steel & Cement",
+   "brand": "",
+   "size": "Roll",
+   "instock": true
+  },
+  {
+   "name": "Roofing sheet",
+   "category": "Steel & Cement",
+   "brand": "",
+   "size": "Galvanized",
+   "instock": true
+  }
+ ]
 };

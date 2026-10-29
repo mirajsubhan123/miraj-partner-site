@@ -3,19 +3,22 @@
 Files
 - `index.html` – the website (shop assistant chat button included)
 - `api/chat.js` – the AI assistant server function (runs on Vercel)
-- `api/_catalogue.js` – shop details and product list the AI knows (ask Claude for a new copy when products change)
+- `api/_catalogue.js` – shop details and a small backup list (the products already shown on the website)
 - `package.json` – tells Vercel to use Node 18 or newer
 
-How the AI turns on
-1. Upload all files (including the `api` folder) to the GitHub repository.
-2. Deploy the repository on Vercel (https://vercel.com, Add New, Project, Import).
-3. In Vercel: Settings, Environment Variables, add `ANTHROPIC_API_KEY` with your key from https://console.anthropic.com, then redeploy.
-4. Open your `...vercel.app` link. The chat button now says it is an AI assistant.
+What the AI does
+- Customer asks about a product: the AI checks the shop's private stock sheet and replies "Yes, available. For price, please contact us on WhatsApp 03159027799 or call 03424077562."
+- It never gives prices and never shares the product list, price list or catalogue. Requests for the list are refused before the AI is even called, and the AI only ever sees the few items that match the customer's question.
 
-Never put the API key in GitHub or in index.html. It belongs only in Vercel's Environment Variables.
+Set up (in Vercel, Settings, Environment Variables)
+1. `ANTHROPIC_API_KEY` – your key from https://console.anthropic.com
+2. `PRODUCT_SHEET_URL` – the "Publish to web" CSV link of your Google Sheet stock list
+Redeploy after adding them.
 
-If the AI is not available, the chat falls back to the built-in product search, so customers always get an answer.
+Keep private
+- Never put the API key or the sheet link in GitHub, index.html or any file. Only in Vercel's Environment Variables.
+- The stock list is not shown anywhere on the website.
 
-Optional settings (Vercel Environment Variables)
+Optional (Vercel Environment Variables)
 - `ANTHROPIC_MODEL` – change the AI model (default `claude-haiku-5-5`)
-- `ALLOWED_ORIGINS` – only allow these websites to use the AI, for example `https://miraj-partners.vercel.app,https://mirajsubhan123.github.io`
+- `ALLOWED_ORIGINS` – only allow these websites to use the AI, for example `https://miraj-partners-all-in-one-store.vercel.app`
