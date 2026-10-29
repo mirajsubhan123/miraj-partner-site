@@ -495,7 +495,7 @@ upd();route();
 .bot-msgs a{color:inherit}
 .bot-chips{display:flex;gap:6px;overflow-x:auto;padding:6px 12px}
 .bot-form{display:flex;gap:6px;padding:8px 12px;border-top:1px solid var(--line)}
-.bot-form input{flex:1;min-width:0}
+.bot-form input{flex:1;min-width:0}.bot-form select{padding:6px;border-radius:8px;border:1px solid var(--line);background:var(--card);color:var(--fg);max-width:86px}.bot-form .btn{padding:8px 10px}
 @media(min-width:800px){.bot-fab{bottom:20px}.bot-panel{bottom:76px}}
 </style>
 <script>
@@ -504,11 +504,13 @@ var root=document.createElement("div");
 root.innerHTML='<button class="bot-fab btn b-yel" id="botOpen" aria-expanded="false" aria-controls="botPanel">💬 Ask the shop</button>'+
 '<section class="bot-panel" id="botPanel" aria-label="Shop assistant" hidden><div class="bot-head"><b>Shop assistant</b><button id="botClose" aria-label="Close assistant">✕</button></div>'+
 '<div class="bot-msgs" id="botMsgs" aria-live="polite"></div><div class="bot-chips" id="botChips"></div>'+
-'<form class="bot-form" id="botForm"><input id="botIn" placeholder="Type what you need…" aria-label="Your message" autocomplete="off"><button class="btn b-yel" type="submit">Send</button></form></section>';
+'<form class="bot-form" id="botForm"><input id="botIn" placeholder="Type what you need…" aria-label="Your message" autocomplete="off"><select id="botLang" aria-label="Voice language" hidden><option value="ur-PK">اردو</option><option value="en-IN">English</option></select><button class="btn b-line" type="button" id="botMic" aria-label="Speak your question" hidden>🎤</button><button class="btn b-yel" type="submit">Send</button></form></section>';
 document.body.appendChild(root);
 var $b=function(id){return document.getElementById(id)},msgs=$b("botMsgs"),panel=$b("botPanel"),opened=false;
 var AI_URL=STORE.aiEndpoint||(/vercel\.app$/.test(location.hostname)?"/api/chat":""),hist=[];
 var STOP="do you have the a an is are what how much price of for i want need please show me any in your and to looking buy get can u available stock rate rates cost kitna hai hain ka ki ke chahiye mujhe".split(" ");
+var voiceOn=false;
+function speak(t){if(!voiceOn||!window.speechSynthesis||!t)return;try{speechSynthesis.cancel();var u=new SpeechSynthesisUtterance(String(t).slice(0,400));u.lang=/[\u0600-\u06FF]/.test(t)?"ur-PK":"en-IN";speechSynthesis.speak(u)}catch(e){}}
 function say(html,who){var d=document.createElement("div");d.className="m "+(who||"b");d.innerHTML=html;msgs.appendChild(d);msgs.scrollTop=msgs.scrollHeight;return d}
 function waBtn(t,label){return '<a class="btn b-wa" target="_blank" rel="noopener" href="'+wa(t)+'">'+(label||"WhatsApp us")+'</a>'}
 function hoursText(){var s="";try{s=shopStatus().t+". "}catch(e){}return s+"We are open Saturday to Thursday 7:00 AM to 6:00 PM, and Friday 8:00 AM to 6:00 PM."}
@@ -545,24 +547,31 @@ function reply(raw){
 }
 function send(text){
   text=text.trim();if(!text)return;say(E(text),"u");
-  if(!AI_URL){setTimeout(function(){say(reply(text))},250);return}
+  if(!AI_URL){setTimeout(function(){var b=say(reply(text));speak(b.textContent)},250);return}
   var bub=say("<i>Typing…</i>");
   hist.push({role:"user",content:text});hist=hist.slice(-8);
   fetch(AI_URL,{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({messages:hist})})
    .then(function(r){if(!r.ok)throw new Error("bad");return r.json()})
    .then(function(d){if(!d||!d.reply)throw new Error("empty");hist.push({role:"assistant",content:d.reply});
      var c=find(text).slice(0,2);
-     bub.innerHTML=E(d.reply).replace(/\n/g,"<br>")+(c.length?results(c):"")+'<div class="acts">'+waBtn("Hello, "+text,"Ask us on WhatsApp")+"</div>";msgs.scrollTop=msgs.scrollHeight})
-   .catch(function(){bub.innerHTML=reply(text);msgs.scrollTop=msgs.scrollHeight});
+     bub.innerHTML=E(d.reply).replace(/\n/g,"<br>")+(c.length?results(c):"")+'<div class="acts">'+waBtn("Hello, "+text,"Ask us on WhatsApp")+"</div>";msgs.scrollTop=msgs.scrollHeight;speak(d.reply)})
+   .catch(function(){bub.innerHTML=reply(text);msgs.scrollTop=msgs.scrollHeight;speak(bub.textContent)});
 }
 function toggle(on){opened=on;panel.hidden=!on;$b("botOpen").setAttribute("aria-expanded",on);
   if(on&&!msgs.children.length){say("Assalam o Alaikum! I am the "+(AI_URL?"AI":"automatic")+" assistant of <b>"+E(STORE.name)+"</b>. Ask me about products, opening hours or our address."+(AI_URL?" I can make mistakes, so please confirm prices and stock on WhatsApp.":" For anything else, WhatsApp us."));}
   if(on)$b("botIn").focus()}
 var chips=[["Opening hours","opening hours"],["Cement","cement"],["Find a product","what products do you have"],["Contact","contact"],["My list","my list"]];
 $b("botChips").innerHTML=chips.map(function(c,i){return '<button class="chip" type="button" data-q="'+i+'">'+c[0]+"</button>"}).join("");
-$b("botChips").addEventListener("click",function(e){var q=e.target.getAttribute("data-q");if(q!=null){if(q==="2"){say("Type the product name, for example <b>PPR elbow</b>, <b>LED bulb</b> or <b>cement</b>.");$b("botIn").focus()}else send(chips[+q][1])}});
+$b("botChips").addEventListener("click",function(e){var q=e.target.getAttribute("data-q");if(q!=null){if(q==="2"){say("Type the product name, for example <b>PPR elbow</b>, <b>LED bulb</b> or <b>cement</b>.");$b("botIn").focus()}else{voiceOn=false;send(chips[+q][1])}}});
 $b("botOpen").onclick=function(){toggle(!opened)};$b("botClose").onclick=function(){toggle(false)};
-$b("botForm").addEventListener("submit",function(e){e.preventDefault();var i=$b("botIn");send(i.value);i.value=""});
+$b("botForm").addEventListener("submit",function(e){e.preventDefault();var i=$b("botIn");voiceOn=false;send(i.value);i.value=""});
+var SR=window.SpeechRecognition||window.webkitSpeechRecognition,mic=$b("botMic");
+if(SR){mic.hidden=false;$b("botLang").hidden=false;
+ mic.onclick=function(){var rec=new SR();rec.lang=$b("botLang").value;rec.interimResults=false;rec.maxAlternatives=1;mic.textContent="⏺";
+  rec.onresult=function(e){var t=e.results[0][0].transcript;voiceOn=true;send(t)};
+  rec.onerror=function(){say("Sorry, I could not hear you. Please allow the microphone, or type your question.")};
+  rec.onend=function(){mic.textContent="🎤"};
+  try{rec.start()}catch(x){mic.textContent="🎤"}}}
 msgs.addEventListener("click",function(e){
   var a=e.target.closest("[data-add]");
   if(a){var id=+a.getAttribute("data-add"),it=inq.find(function(x){return x.id===id});it?it.q++:inq.push({id:id,q:1});upd();a.textContent="Added ✓";return}
